@@ -35,7 +35,10 @@ To utilize the formatting, code blocks must be enclode with two separate lines o
 ' ' '
 
 ### Admonitions
-Admonitions are known as "call-outs", as they allow the addition of side content without ruining the structure of the main content. To begin, paste the following source code directly into your 'mkdocs.yml' file.
+Admonitions are known as "call-outs", as they allow the addition of side content without ruining the structure of the main content. To begin, paste the following source code directly into your 'mkdocs.yml' file. 
+
+!!! tip "Tip"
+  Admonitions are extremely useful in adding notes, tips, warnings, cautions, etc!
 
 ``` yaml
 markdown_extensions:
