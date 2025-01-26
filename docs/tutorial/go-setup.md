@@ -1,0 +1,37 @@
+# Setting up a dev container for Go
+
+* Primary author: [Daniel Zhang](https://github.com/D123aniel/) 
+
+## Enabling extensions from Material for MkDocs
+
+To begin, we will first enable some very useful (and basically required) markdown features. 
+
+### Code Blocks
+Code Blocks allows us to highlight code blocks in order for code to be easily readable and differentiable. To begin, simply paste the following source code directly into your `mkdocs.yml` file.
+
+``` yaml
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+```
+
+To utilize the formatting, code blocks must be enclode with two separate lines of 3 backticks. A language "shortcode" must also be added to specify the language in which the formatting should be in. This shortcode is added right after the first 3 backticks. 
+
+' ' ' shortcode  
+      code  
+' ' '
+
+### Admonitions
+Admonitions are known as "call-outs", as they allow the addition of side content without ruining the structure of the main content. To begin, paste the following source code directly into your 'mkdocs.yml' file.
+
+``` yaml
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+```
