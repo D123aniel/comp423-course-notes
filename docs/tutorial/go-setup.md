@@ -2,6 +2,13 @@
 
 * Primary author: [Daniel Zhang](https://github.com/D123aniel/) 
 
+# Pre-requisites
+These items are required to have in order to set up your devcontainer:
+1. GitHub account
+2. Install Git
+3. Download and install Microsoft's Visual Studio Code (VS Code)
+4. Install Docker
+
 ## Enabling extensions from Material for MkDocs
 
 To begin, we will first enable some very useful (and basically required) markdown features. 
