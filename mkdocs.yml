@@ -10,6 +10,5 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - admonition
-  - codehilite:
-      guess_lang: false
-      linenums: true
+  - pymdownx.details
+  - pymdownx.superfences

@@ -12,51 +12,11 @@ These benefits provided by Dev Containers ensure a smooth and reliable developme
 ## Pre-requisites
 These items are required to have in order to set up your devcontainer:
 
-1. GitHub Account
-2. Install Git
-3. Download and install Microsoft Visual Studio Code (VS Code)'
-4. Install Docker
+1. [GitHub](https://github.com/) Account
+2. Install [Git](https://github.com/git-guides/install-git)
+3. Download and install Microsoft Visual Studio Code ([VS Code](https://code.visualstudio.com/download))
+4. Install [Docker Desktop](https://docs.docker.com/desktop/)
 
-
-
-## Enabling extensions from Material for MkDocs
-
-To begin, we will first enable some very useful (and basically required) markdown features. 
-
-### Code Blocks
-Code Blocks allows us to highlight code blocks in order for code to be easily readable and differentiable. To begin, simply paste the following source code directly into your `mkdocs.yml` file.
-
-``` yaml
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-```
-
-To utilize the formatting, code blocks must be enclode with two separate lines of 3 backticks. A language "shortcode" must also be added to specify the language in which the formatting should be in. This shortcode is added right after the first 3 backticks. 
-```
-''' <shortcode>  
-    code  
-'''
-```
-
-### Admonitions
-Admonitions are known as "call-outs", as they allow the addition of side content without ruining the structure of the main content. To begin, paste the following source code directly into your 'mkdocs.yml' file. 
-
-``` yaml
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-```
-
-!!! warning "Proper Formatting"
-
-    Ensure that all indentation levels in your mkdocs.yml file are correct to avoid errors.
 
 ## Installation 
 
@@ -69,8 +29,8 @@ markdown_extensions:
 (B) Create a new directory for your project with the following commands:
 
 ```
-mkdir go-devcontainer-tutorial
-cd go-devcontainer-tutorial
+mkdir go-tutorial
+cd go-tutorial
 ```
 
 (C) Initialize new Git repository
@@ -94,10 +54,10 @@ git commit -m "Initial commit w/ README"
 
 (A) Log in to your GitHub account and navigate to Create a New Repository Page
 
-(B) Fill in the following details as follows: 
+(B) Fill in the following details (example shown below): 
 
-* **Repository Name**: ``` go-project ```
-* **Descipriton**: "New Go Project"
+* **Repository Name**: ```go-tutorial```
+* **Description**: "Go Project Setup Tutorial"
 * **Visibility**: Public
 
 #### Step 3. Link your Local Repository to GitHub
@@ -105,7 +65,7 @@ git commit -m "Initial commit w/ README"
 (1) Add the GitHub Repository as a remote:
 
 ```
-git remote add origin https://github.com/<your-username>/go-devcontainer-tutorial.git
+git remote add origin https://github.com/<your-username>/go-tutorial.git
 ```
 
 Replace ```
@@ -160,10 +120,10 @@ The ``` devcontainer.json``` file defines the configuration for your development
 
 #### Step 2: Reopen the Project in a VS Code Dev Container
 
-Reopen the project in a devcontainer by pressing ```Ctrl+Shift+P``` (```Cmd+Shift+P``` on Mac), and type "Dev Containers: Reopen in Container." Selecting the option will cause your VS Code to reload as the image is downloaded and requirements installed. Once your setup is complete, ensure in the ```go.mod``` file that the version is 1.23.4 (or the latest version at the time of completion).
+Reopen the project in a devcontainer by pressing ```Ctrl+Shift+P``` (```Cmd+Shift+P``` on Mac), and type "Dev Containers: Reopen in Container." Selecting the option will cause your VS Code to reload as the image is downloaded and requirements installed. Once your setup is complete, the terminal should print out the version of Go installed. Ensure the version is 1.23.4 (or the latest version at the time of completion).
 
 !!! warning "Wrong Version"
-    If the version is incorrect, ensure that the ```:latest``` tag is attached to the end of the image link.
+    If the version is incorrect, ensure that the ```:latest``` tag is attached to the end of the image link. Then, press ```Ctrl+Shift+P``` (```Cmd+Shift+P``` on Mac) and type "Dev Containers: Rebuild Container" and run it.
 
 ### Part 3: Write your first program in Go
 
@@ -178,7 +138,7 @@ go mod init <github repository location>
 ```
 
 !!! warning "Correct Module Path"
-    Ensure that the GitHub remote repository is the same one as you are currently working in for compatibility with Go tools.
+    Ensure that the GitHub remote repository is the same one as you are currently working in, and remove the "https://" at the beginning.
 
 ### Step 2: File creation and code
 
@@ -194,9 +154,16 @@ func main() {
 }
 ```
 
+!!! note "What does this do?"
+    - We declare the main package, a required step for Go programs. 
+    - ```import "fmt"``` imports the ```fmt``` package, a standard Go library used for formatted I/O. 
+    - Then, we create a ```main``` function as an entry point to our program, and use the ```Println``` function from the ```fmt``` library to print the string "Hello COMP423". 
+
 To run your code, use the command ``` go run .``` in your terminal to see the output (don't forget the dot at the end)!
 
 We can also use the ```build``` subcommand to build the program into a binary file, similar to the ```gcc```command used mainly for C and C++ development. To do so, we run ```go build -o main``` in our terminal. This produces a binary file ```main```, which is an executable file that can be executed separately from Go's environment. To execute the file directly, run the command ```./main```.
 
 !!! info "```run``` vs ```build```"
     ```go run``` automatically compiles and executes the program. ```go build``` compiles but doesn't execute the program, instead creating a separate binary file. This is an executable file that can be run later independent of the GO environment. This allows for more portable binary files for sharing, and ensuring they work outside of this particular environment.
+
+Credits and Acknowledgements: [https://comp423-25s.github.io/resources/MkDocs/tutorial/](https://comp423-25s.github.io/resources/MkDocs/tutorial/)
