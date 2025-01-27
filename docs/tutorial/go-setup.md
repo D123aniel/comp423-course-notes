@@ -1,8 +1,5 @@
 # Setting up a dev container for Go
 
-<<<<<<< HEAD
-* Primary author: [Daniel Zhang](https://github.com/D123aniel/)
-=======
 * Primary author: [Daniel Zhang](https://github.com/D123aniel/)
 * Reviewer: [Mann Barot](https://github.com/MannBarot)
 
@@ -49,4 +46,3 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 ```
->>>>>>> edits/admonitions
