@@ -3,12 +3,21 @@
 * Primary author: [Daniel Zhang](https://github.com/D123aniel/)
 * Reviewer: [Mann Barot](https://github.com/MannBarot)
 
-# Pre-requisites
+## Introduction
+
+Dev Containers are a powerful way to ensure all team members in a project have the same dependencies and environment without having to locally download everything, risking version mismatches and conflicts on personal machines. Dev Containers also provide a way to quickly get team members up and running by pre-defining dependencies, versions, tools, and configurations in a single file. They also work in isolation from your host machine, allowing developers to prevent conflicts between versions and dependencies. 
+
+These benefits provided by Dev Containers ensure a smooth and reliable development experience, especially in collaborative settings. In this tutorial, we go over how to start up a Go project using Dev Containers in VS Code. 
+
+## Pre-requisites
 These items are required to have in order to set up your devcontainer:
-1. GitHub account
+
+1. GitHub Account
 2. Install Git
-3. Download and install Microsoft's Visual Studio Code (VS Code)
+3. Download and install Microsoft Visual Studio Code (VS Code)'
 4. Install Docker
+
+
 
 ## Enabling extensions from Material for MkDocs
 
@@ -29,16 +38,14 @@ markdown_extensions:
 ```
 
 To utilize the formatting, code blocks must be enclode with two separate lines of 3 backticks. A language "shortcode" must also be added to specify the language in which the formatting should be in. This shortcode is added right after the first 3 backticks. 
-
-' ' ' shortcode  
-      code  
-' ' '
+```
+''' <shortcode>  
+    code  
+'''
+```
 
 ### Admonitions
 Admonitions are known as "call-outs", as they allow the addition of side content without ruining the structure of the main content. To begin, paste the following source code directly into your 'mkdocs.yml' file. 
-
-!!! tip "Tip"
-  Admonitions are extremely useful in adding notes, tips, warnings, cautions, etc!
 
 ``` yaml
 markdown_extensions:
@@ -46,8 +53,10 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 ```
-<<<<<<< HEAD
-=======
+
+!!! warning "Proper Formatting"
+
+    Ensure that all indentation levels in your mkdocs.yml file are correct to avoid errors.
 
 ## Installation 
 
@@ -77,6 +86,9 @@ echo "# New Go Project" > README.md
 git add README.md
 git commit -m "Initial commit w/ README"
 ```
+!!! tip "Commit Early and Often"
+
+    Committing early and often like this, even after small changes, helps users track their progress and changes much easier.
 
 #### Step 2. Create a Remote Repo on GitHub
 
@@ -108,6 +120,9 @@ Replace ```
 git push --set-upstream origin main 
 ```
 
+!!! warning "Check Remote URL"
+    Double-check your remote URL to ensure it points to the correct repository. This can be useful when working on multiple repositories/projects at once.
+
 ### Part 2: Setting up the Development Environment
 
 #### Step 1: Add Development Container Configuration
@@ -129,9 +144,26 @@ The ``` devcontainer.json``` file defines the configuration for your development
 * ```customization```: Adds useful customizations to VS Code. In this case, we are installing the Go lang extension from the VS Code marketplace. 
 * ```postCreateCommand```: Upon creation of the devcontainer, we run the command "go version" automatically. This will ensure that the devcontainer is configured with the correct (latest) version of Go lang. 
 
+``` json
+{
+    "name": "Example Go Project",
+    "image": "mcr.microsoft.com/vscode/devcontainers/go:latest",
+    "customizations": {
+      "vscode": {
+        "settings": {},
+        "extensions": ["golang.Go"]
+      }
+    },
+    "postCreateCommand": "go version"
+  }
+```
+
 #### Step 2: Reopen the Project in a VS Code Dev Container
 
 Reopen the project in a devcontainer by pressing ```Ctrl+Shift+P``` (```Cmd+Shift+P``` on Mac), and type "Dev Containers: Reopen in Container." Selecting the option will cause your VS Code to reload as the image is downloaded and requirements installed. Once your setup is complete, ensure in the ```go.mod``` file that the version is 1.23.4 (or the latest version at the time of completion).
+
+!!! warning "Wrong Version"
+    If the version is incorrect, ensure that the ```:latest``` tag is attached to the end of the image link.
 
 ### Part 3: Write your first program in Go
 
@@ -144,6 +176,9 @@ Creating a go.mod file will enable dependency tracking in your code, allowing yo
 ```
 go mod init <github repository location>
 ```
+
+!!! warning "Correct Module Path"
+    Ensure that the GitHub remote repository is the same one as you are currently working in for compatibility with Go tools.
 
 ### Step 2: File creation and code
 
@@ -162,4 +197,6 @@ func main() {
 To run your code, use the command ``` go run .``` in your terminal to see the output (don't forget the dot at the end)!
 
 We can also use the ```build``` subcommand to build the program into a binary file, similar to the ```gcc```command used mainly for C and C++ development. To do so, we run ```go build -o main``` in our terminal. This produces a binary file ```main```, which is an executable file that can be executed separately from Go's environment. To execute the file directly, run the command ```./main```.
->>>>>>> documentation
+
+!!! info "```run``` vs ```build```"
+    ```go run``` automatically compiles and executes the program. ```go build``` compiles but doesn't execute the program, instead creating a separate binary file. This is an executable file that can be run later independent of the GO environment. This allows for more portable binary files for sharing, and ensuring they work outside of this particular environment.
