@@ -57,7 +57,7 @@ git commit -m "Initial commit w/ README"
 
 (B) Fill in the following details (example shown below): 
 
-* **Repository Name**: ```go-tutorial```
+* **Repository Name**: ```go-devcontainer-tutorial```
 * **Description**: "Go Project Setup Tutorial"
 * **Visibility**: Public
 
