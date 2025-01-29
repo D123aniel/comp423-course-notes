@@ -88,7 +88,7 @@ git push --set-upstream origin main
 
 #### Step 1: Add Development Container Configuration
 
-(1) In VS Code, open your ``` go-devcontainer-tutorial ``` directory. 
+(1) In VS Code, open your ``` go-tutorial ``` directory. 
 
 (2) Install the **Dev Containers** extension for VS Code.
 
