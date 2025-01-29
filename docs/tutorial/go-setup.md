@@ -2,6 +2,7 @@
 
 * Primary author: [Daniel Zhang](https://github.com/D123aniel/)
 * Reviewer: [Mann Barot](https://github.com/MannBarot)
+* Reviewer2: [Richard Tan](https://github.com/richatan1)
 
 ## Introduction
 
